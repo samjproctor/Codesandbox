@@ -36,7 +36,7 @@ const sketch = ({ context }) => {
 
   // Setup your scene
   const scene = new THREE.Scene();
-
+  scene.background = new THREE.Color("rgb(255,255,255)");
   // Setup a geometry
   const objectGroup = new THREE.Group();
   scene.add(objectGroup);
