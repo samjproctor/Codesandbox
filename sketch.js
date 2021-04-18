@@ -4,8 +4,8 @@ global.THREE = require("three");
 // Include any additional ThreeJS examples below
 require("three/examples/js/controls/OrbitControls");
 
-var CANVAS_WIDTH = 300;
-var CANVAS_HEIGHT = 300;
+var CANVAS_WIDTH = window.innerWidth * 0.9;
+var CANVAS_HEIGHT = window.innerHeight * 0.5;
 const canvasSketch = require("canvas-sketch");
 const { Plane, PlaneGeometry, Scene } = require("three");
 
@@ -34,7 +34,7 @@ const sketch = ({ context }) => {
 	const camera = new THREE.PerspectiveCamera(
 		45,
 		CANVAS_WIDTH / CANVAS_HEIGHT,
-		0.1,
+		0.001,
 		100
 	);
 	camera.position.set(0, 0, -4);
@@ -45,7 +45,7 @@ const sketch = ({ context }) => {
 
 	// Setup your scene
 	const scene = new THREE.Scene();
-	scene.background = new THREE.Color("rgb(255,255,255)");
+	scene.background = new THREE.Color("rgb(0,0,0)");
 	// Setup a geometry
 	const objectGroup = new THREE.Group();
 	scene.add(objectGroup);

@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="UTF-8" />
 		<title>3D App</title>
 		<link rel="stylesheet" type="text/css" href="./index.css" />
+		<style>
+			.params {
+				border: 1px solid blue;
+			}
+		</style>
 	</head>
 	<body>
 		<div>3D Test App</div>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
 		<script src="/sketch.js"></script>
-		<div id="scene3d"></div>
-		<div id="params">Parameters</div>
+		<div id="scene3d" class="scene3d"></div>
+		<div id="params" class="params">Parameters</div>
 	</body>
 </html>
