@@ -7,6 +7,7 @@ require("three/examples/js/controls/OrbitControls");
 const canvasSketch = require("canvas-sketch");
 const { Plane, PlaneGeometry, Scene } = require("three");
 
+var scene3d = document.getElementById("scene3d");
 const settings = {
   // Make the loop animated
   animate: true,
@@ -25,7 +26,7 @@ const sketch = ({ context }) => {
 
   // WebGL background color
   renderer.setClearColor("#121212", 1);
-
+  scene3d.appendChild(renderer.domElement);
   // Setup a camera
   const camera = new THREE.PerspectiveCamera(50, 1, 0.01, 100);
   camera.position.set(0, 0, -4);
@@ -97,7 +98,7 @@ const sketch = ({ context }) => {
     const intersects = raycaster.intersectObjects(scene.children);
     console.log(intersects);
     for (let i = 0; i < scene.children[0].children.length; i++) {
-      if (scene.children[0].children[i] == intersects[0].object) {
+      if (scene.children[0].children[i] === intersects[0].object) {
         scene.children[0].children[i].material.color.set("blue");
       } else {
         scene.children[0].children[i].material.color.set("red");
@@ -110,7 +111,7 @@ const sketch = ({ context }) => {
     // Handle resize events here
     resize({ pixelRatio, viewportWidth, viewportHeight }) {
       renderer.setPixelRatio(pixelRatio);
-      renderer.setSize(viewportWidth, viewportHeight, false);
+      renderer.setSize(viewportWidth * 2, viewportHeight * 2, false);
       camera.aspect = viewportWidth / viewportHeight;
       camera.updateProjectionMatrix();
     },
@@ -123,7 +124,7 @@ const sketch = ({ context }) => {
       const intersects = raycaster.intersectObjects(scene.children);
 
       for (let i = 0; i < scene.children[0].children.length; i++) {
-        if (scene.children[0].children[i] == intersects[0].object) {
+        if (scene.children[0].children[i] === intersects[0].object) {
           scene.children[0].children[i].material.color.set("yellow");
         } else {
           scene.children[0].children[i].material.color.set("red");
@@ -131,6 +132,7 @@ const sketch = ({ context }) => {
       }
 
       controls.update();
+      //scene3d.appendChild(renderer.domElement);
       renderer.render(scene, camera);
     },
     // Dispose of events & renderer for cleaner hot-reloading
