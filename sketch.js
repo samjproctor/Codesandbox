@@ -51,7 +51,7 @@ const sketch = ({ context }) => {
   });
 
   const solidMaterial = new THREE.MeshBasicMaterial({
-    color: "grey"
+    color: "blue"
   });
 
   // Setup a mesh with geometry + material
