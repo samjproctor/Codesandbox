@@ -3,19 +3,20 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>3D App</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
+		<script src="/sketch.js"></script>
 		<link rel="stylesheet" type="text/css" href="./index.css" />
-		<style>
-			.params {
-				background-color: red;
-				border: 1px solid blue;
+		<style type="text/css" rel="stylesheet">
+			h1 {
+			  font-family: "Cedarville Cursive", cursive;}
+			  font-size: 50px;
+			  background-color: yellow;
 			}
 		</style>
 	</head>
 	<body>
-		<div>3D Test App</div>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
-		<script src="/sketch.js"></script>
+		<h1>3D Test App</h1>
 		<div id="scene3d" class="scene3d"></div>
-		<div id="params" class="params">Parameters</div>
+		<p id="params" class="params">Parameters</p>
 	</body>
 </html>

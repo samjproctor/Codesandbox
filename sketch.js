@@ -4,7 +4,7 @@ global.THREE = require("three");
 // Include any additional ThreeJS examples below
 require("three/examples/js/controls/OrbitControls");
 
-var CANVAS_WIDTH = window.innerWidth * 0.9;
+var CANVAS_WIDTH = window.innerWidth;
 var CANVAS_HEIGHT = window.innerHeight * 0.5;
 const canvasSketch = require("canvas-sketch");
 const { Plane, PlaneGeometry, Scene } = require("three");
@@ -35,7 +35,7 @@ const sketch = ({ context }) => {
 		45,
 		CANVAS_WIDTH / CANVAS_HEIGHT,
 		0.001,
-		100
+		1000
 	);
 	camera.position.set(0, 0, -4);
 	camera.lookAt(new THREE.Vector3());
