@@ -49,7 +49,7 @@ const sketch = ({ context }) => {
 	// Setup a geometry
 	const objectGroup = new THREE.Group();
 	scene.add(objectGroup);
-	console.log(scene);
+	//console.log(scene);
 	const geometry = new THREE.SphereGeometry(1, 32, 16);
 	const newPlane = new PlaneGeometry(5, 3, 2, 1);
 
@@ -104,7 +104,7 @@ const sketch = ({ context }) => {
 
 		// calculate objects intersecting the picking ray
 		const intersects = raycaster.intersectObjects(scene.children);
-		console.log(intersects);
+		//console.log(intersects);
 		for (let i = 0; i < scene.children[0].children.length; i++) {
 			if (scene.children[0].children[i] === intersects[0].object) {
 				scene.children[0].children[i].material.color.set("blue");
