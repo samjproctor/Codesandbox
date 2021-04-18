@@ -40,25 +40,25 @@ const sketch = ({ context }) => {
   // Setup a geometry
   const objectGroup = new THREE.Group();
   scene.add(objectGroup);
-  console.log(scene)
+  console.log(scene);
   const geometry = new THREE.SphereGeometry(1, 32, 16);
-  const newPlane = new PlaneGeometry(5,3,2,1);
+  const newPlane = new PlaneGeometry(5, 3, 2, 1);
 
   // Setup a material
   const material = new THREE.MeshBasicMaterial({
-    color: "red",
+    color: "blue",
     wireframe: true
   });
 
   const solidMaterial = new THREE.MeshBasicMaterial({
-    color: "grey",
+    color: "grey"
   });
 
   // Setup a mesh with geometry + material
   const mesh = new THREE.Mesh(geometry, material);
   objectGroup.add(mesh);
   const newMesh = new THREE.Mesh(newPlane, solidMaterial);
-  newMesh.name = Plane
+  newMesh.name = Plane;
   newMesh.material.side = THREE.DoubleSide;
   objectGroup.add(newMesh);
 
@@ -70,8 +70,6 @@ const sketch = ({ context }) => {
   scene.add(light);
   scene.add(light.target);
 
- 
-
   //HELPERS
   scene.add(new THREE.PointLightHelper(light, 1));
   scene.add(new THREE.GridHelper(50, 50));
@@ -80,27 +78,26 @@ const sketch = ({ context }) => {
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
 
-  window.addEventListener( 'mousemove', onMouseMove, false );
-  window.addEventListener( 'pointerdown', onMouseDown, false );
+  window.addEventListener("mousemove", onMouseMove, false);
+  window.addEventListener("pointerdown", onMouseDown, false);
 
-  function onMouseMove( event ) {
-
+  function onMouseMove(event) {
     // calculate mouse position in normalized device coordinates
     // (-1 to +1) for both components
-    mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-    mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
   }
 
-  function onMouseDown( event ) {
+  function onMouseDown(event) {
     console.log("Selected");
     // update the picking ray with the camera and mouse position
-    raycaster.setFromCamera( mouse, camera );
+    raycaster.setFromCamera(mouse, camera);
 
     // calculate objects intersecting the picking ray
-    const intersects = raycaster.intersectObjects( scene.children );
+    const intersects = raycaster.intersectObjects(scene.children);
     console.log(intersects);
-    for ( let i = 0; i < scene.children[0].children.length; i ++ ) {
-      if (scene.children[0].children[i] == intersects[ 0 ].object) {
+    for (let i = 0; i < scene.children[0].children.length; i++) {
+      if (scene.children[0].children[i] == intersects[0].object) {
         scene.children[0].children[i].material.color.set("blue");
       } else {
         scene.children[0].children[i].material.color.set("red");
@@ -110,7 +107,6 @@ const sketch = ({ context }) => {
 
   // draw each frame
   return {
-    
     // Handle resize events here
     resize({ pixelRatio, viewportWidth, viewportHeight }) {
       renderer.setPixelRatio(pixelRatio);
@@ -121,19 +117,19 @@ const sketch = ({ context }) => {
     // Update & render your scene here
     render({ time }) {
       // update the picking ray with the camera and mouse position
-	    raycaster.setFromCamera( mouse, camera );
+      raycaster.setFromCamera(mouse, camera);
 
-	    // calculate objects intersecting the picking ray
-	    const intersects = raycaster.intersectObjects( scene.children );
+      // calculate objects intersecting the picking ray
+      const intersects = raycaster.intersectObjects(scene.children);
 
-      for ( let i = 0; i < scene.children[0].children.length; i ++ ) {
-          if (scene.children[0].children[i] == intersects[ 0 ].object) {
-            scene.children[0].children[i].material.color.set("yellow");
-          } else {
-            scene.children[0].children[i].material.color.set("red");
-          }
+      for (let i = 0; i < scene.children[0].children.length; i++) {
+        if (scene.children[0].children[i] == intersects[0].object) {
+          scene.children[0].children[i].material.color.set("yellow");
+        } else {
+          scene.children[0].children[i].material.color.set("red");
         }
-      
+      }
+
       controls.update();
       renderer.render(scene, camera);
     },
