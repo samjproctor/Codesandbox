@@ -8,7 +8,7 @@ var CANVAS_WIDTH = window.innerWidth;
 var CANVAS_HEIGHT = window.innerHeight * 0.5;
 const canvasSketch = require("canvas-sketch");
 const { Plane, PlaneGeometry, Scene } = require("three");
-
+const scene = new THREE.Scene();
 var scene3d = document.getElementById("scene3d");
 const settings = {
 	// Make the loop animated
@@ -44,7 +44,7 @@ const sketch = ({ context }) => {
 	const controls = new THREE.OrbitControls(camera, context.canvas);
 
 	// Setup your scene
-	const scene = new THREE.Scene();
+	//const scene = new THREE.Scene();
 	scene.background = new THREE.Color("rgb(0,0,0)");
 	// Setup a geometry
 	const objectGroup = new THREE.Group();
@@ -165,5 +165,6 @@ function showPanel() {
 
 function toggleBackgroundColor() {
 	console.log("Toggle");
-	scene.background = new THREE.Color("rgb(255,255,255)");
+	console.log(sketch.scene);
+	sketch.scene.background = new THREE.Color("rgb(255,255,255)");
 }
