@@ -87,8 +87,8 @@ const sketch = ({ context }) => {
 	const raycaster = new THREE.Raycaster();
 	const mouse = new THREE.Vector2();
 
-	window.addEventListener("mousemove", onMouseMove, false);
-	window.addEventListener("pointerdown", onMouseDown, false);
+	scene.addEventListener("mousemove", onMouseMove, false);
+	scene.addEventListener("pointerdown", onMouseDown, false);
 
 	function onMouseMove(event) {
 		// calculate mouse position in normalized device coordinates
@@ -158,7 +158,7 @@ showPanel();
 function showPanel() {
 	console.log("Show Panel");
 	var button = document.createElement("button");
-	button.onclick = toggleBackgroundColor();
+	button.onmouseup = toggleBackgroundColor();
 	button.innerHTML = "Background";
 	document.getElementById("scene3d").appendChild(button);
 }
