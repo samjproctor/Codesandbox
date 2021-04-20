@@ -160,7 +160,7 @@ function showPanel() {
 	const div = document.createElement("div");
 	var button = document.createElement("button");
 	button.onclick = toggleBackgroundColor();
-	button.title.innerHTML = "Background";
+	button.innerHTML = "Background";
 	div.className = "row";
 
 	div.innerHTML = `
@@ -176,5 +176,6 @@ function showPanel() {
 }
 
 function toggleBackgroundColor() {
-	scene3d.background = new THREE.color("rgb(255,255,255)");
+	console.log("Toggle");
+	scene3d.background = new THREE.Color("rgb(255,255,255)");
 }
