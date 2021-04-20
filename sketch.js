@@ -158,7 +158,9 @@ showPanel();
 function showPanel() {
 	console.log("Show Panel");
 	const div = document.createElement("div");
-
+	var button = document.createElement("button");
+	button.onclick = toggleBackgroundColor();
+	button.title.innerHTML = "Background";
 	div.className = "row";
 
 	div.innerHTML = `
@@ -170,7 +172,7 @@ function showPanel() {
     <input type="button" value="-" onclick="toggleBackgroundColor()" />
   `;
 
-	document.getElementById("scene3d").appendChild(div);
+	document.getElementById("scene3d").appendChild(button);
 }
 
 function toggleBackgroundColor() {
