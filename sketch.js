@@ -98,7 +98,7 @@ const sketch = ({ context }) => {
 	}
 
 	function onMouseDown(event) {
-		console.log("Selected");
+		//console.log("Selected");
 		// update the picking ray with the camera and mouse position
 		raycaster.setFromCamera(mouse, camera);
 
@@ -157,21 +157,9 @@ showPanel();
 
 function showPanel() {
 	console.log("Show Panel");
-	const div = document.createElement("div");
 	var button = document.createElement("button");
 	button.onclick = toggleBackgroundColor();
 	button.innerHTML = "Background";
-	div.className = "row";
-
-	div.innerHTML = `
-    <input type="text" name="name" value="" />
-    <input type="text" name="value" value="" />
-    <label> 
-      <input type="checkbox" name="check" value="1" /> Checked? 
-    </label>
-    <input type="button" value="-" onclick="toggleBackgroundColor()" />
-  `;
-
 	document.getElementById("scene3d").appendChild(button);
 }
 
