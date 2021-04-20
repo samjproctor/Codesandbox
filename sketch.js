@@ -167,8 +167,12 @@ function showPanel() {
     <label> 
       <input type="checkbox" name="check" value="1" /> Checked? 
     </label>
-    <input type="button" value="-" onclick="removeRow(this)" />
+    <input type="button" value="-" onclick="toggleBackgroundColor()" />
   `;
 
 	document.getElementById("scene3d").appendChild(div);
+}
+
+function toggleBackgroundColor() {
+	scene3d.background = new THREE.color("rgb(255,255,255)");
 }
