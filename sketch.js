@@ -152,3 +152,8 @@ const sketch = ({ context }) => {
 };
 
 canvasSketch(sketch, settings);
+scene3d.appendChild(showPanel());
+
+function showPanel(){
+	return <h1>Test Label</h1>
+}
