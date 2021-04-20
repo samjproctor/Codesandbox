@@ -158,12 +158,12 @@ showPanel();
 function showPanel() {
 	console.log("Show Panel");
 	var button = document.createElement("button");
-	button.onmouseup = toggleBackgroundColor();
+	button.onclick = toggleBackgroundColor();
 	button.innerHTML = "Background";
 	document.getElementById("scene3d").appendChild(button);
 }
 
 function toggleBackgroundColor() {
 	console.log("Toggle");
-	scene3d.background = new THREE.Color("rgb(255,255,255)");
+	scene.background = new THREE.Color("rgb(255,255,255)");
 }
