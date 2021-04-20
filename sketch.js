@@ -152,8 +152,23 @@ const sketch = ({ context }) => {
 };
 
 canvasSketch(sketch, settings);
-scene3d.appendChild(showPanel());
+//scene3d.appendChild(showPanel());
+showPanel();
 
-function showPanel(){
-	return <h1>Test Label</h1>
+function showPanel() {
+	console.log("Show Panel");
+	const div = document.createElement("div");
+
+	div.className = "row";
+
+	div.innerHTML = `
+    <input type="text" name="name" value="" />
+    <input type="text" name="value" value="" />
+    <label> 
+      <input type="checkbox" name="check" value="1" /> Checked? 
+    </label>
+    <input type="button" value="-" onclick="removeRow(this)" />
+  `;
+
+	document.getElementById("scene3d").appendChild(div);
 }
